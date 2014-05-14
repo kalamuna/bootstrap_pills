@@ -14,11 +14,10 @@ function bootstrap_pills_field_formatter_info() {
   return array(
     'bootstrap_pills_formatter' => array(
       'label' => t('Bootstrap Pills'),
-      'field types' => array('taxonomy_term_reference', 'entity_reference')
+      'field types' => array('taxonomy_term_reference','entityreference')
     ),
   );
 }
-
 
 
 
@@ -26,5 +25,34 @@ function bootstrap_pills_field_formatter_info() {
  * Implements hook_field_formatter_view().
  */
 function bootstrap_pills_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $result = array();
 
+  if($field['type']==='entityreference'){
+    if(count($items) > 0 ){
+      $links = array(
+      '#theme' => 'links',
+      '#attributes' => array(
+         'class'=> array('nav', 'nav-pills'),
+         'role' => 'navigation'
+         ),
+      );
+      $entity_type = $field['settings']['target_type'];
+      $ids = array();
+      foreach($items as $key => $item){
+        $ids[] = $item['target_id'];
+      }
+      $entities = entity_load($entity_type, $ids);
+      foreach($entities as $entity){
+        $title = $entity -> name;
+        $uri = entity_uri($entity_type, $entity);
+        $links['#links'][] = array(
+          'title' => $title,
+          'href' => $uri['path']
+        );
+      }
+      $result[] = $links;
+    }
+  }
+  return $result;
 }
