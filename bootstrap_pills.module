@@ -1,0 +1,31 @@
+<?php
+/**
+ * @file
+ * Adds a custom field formatter for taxonomy terms to be renderd
+ * as Bootstrap Pills.
+ *
+ */
+
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function bootstrap_pills_field_formatter_info() {
+  return array(
+    'taxonomy_pills_formatter' => array(
+      'label' => t('Bootstrap Pills'),
+      'field types' => array('term_reference', 'entity_reference'),
+      'settings'  => array()
+    ),
+  );
+}
+
+
+
+
+ /**
+ * Implements hook_field_formatter_view().
+ */
+function bootstrap_pills_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+
+}
