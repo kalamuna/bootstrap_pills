@@ -12,10 +12,9 @@
  */
 function bootstrap_pills_field_formatter_info() {
   return array(
-    'taxonomy_pills_formatter' => array(
+    'bootstrap_pills_formatter' => array(
       'label' => t('Bootstrap Pills'),
-      'field types' => array('term_reference', 'entity_reference'),
-      'settings'  => array()
+      'field types' => array('taxonomy_term_reference', 'entity_reference')
     ),
   );
 }

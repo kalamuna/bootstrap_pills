@@ -2,5 +2,5 @@ name = Taxonomy Bootstrap Pills
 description = Adds a field formatter to taxonomy terms to render them as single a bootstrap nav-pills.
 package = Fields
 core = 7.x
-project = taxonomy_pills
-files[] = taxonomy_pills.module
+project = bootstrap_pills
+files[] = bootstrap_pills.module
