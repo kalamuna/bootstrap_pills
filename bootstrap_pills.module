@@ -33,7 +33,7 @@ function bootstrap_pills_field_formatter_view($entity_type, $entity, $field, $in
       $links = array(
       '#theme' => 'links',
       '#attributes' => array(
-         'class'=> array('nav', 'nav-pills'),
+         'class'=> array('nav', 'nav-pills', 'tags'),
          'role' => 'navigation'
          ),
       );
